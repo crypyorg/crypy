@@ -1,4 +1,4 @@
-import * as cryptoTS from 'crypto-ts';
+import CryptoJS from 'crypto-js';
 
 /**
  * Encrypts the given plain text.
@@ -7,8 +7,8 @@ import * as cryptoTS from 'crypto-ts';
  * @returns     The encrypted string
  */
 function encrypt(key: number, input: string): string {
-    const hash: string = cryptoTS.SHA256(key.toString());
-    const result: string = cryptoTS.AES.encrypt(input, hash).toString();
+    const hash: string = CryptoJS.SHA256(key.toString()).toString();
+    const result: string = CryptoJS.AES.encrypt(input, hash).toString();
     return result;
 }
 
@@ -19,8 +19,8 @@ function encrypt(key: number, input: string): string {
  * @returns     The decrypted string
  */
 function decrypt(key: number, input: string): string {
-    const hash: string = cryptoTS.SHA256(key.toString());
-    const result: string = cryptoTS.AES.decrypt(input, hash).toString(cryptoTS.enc.Utf8);
+    const hash: string = CryptoJS.SHA256(key.toString()).toString();
+    const result: string = CryptoJS.AES.decrypt(input, hash).toString(CryptoJS.enc.Utf8);
     return result;
 }
 
