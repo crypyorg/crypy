@@ -66,7 +66,9 @@ function App(): JSX.Element {
                 <input id="input" placeholder="text" value={input} onInput={event => setInput(eventHandler(event))}></input>
                 <button type="submit" onClick={() => submitHandler(num, input, toggle, setResult)}>Submit</button>
             </div>
+            <div id="contain">
             <p id="result">{result}</p>
+            </div>
         </div>
     );
 }

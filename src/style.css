@@ -49,9 +49,16 @@ body {
     cursor: pointer;
 }
 
+#contain {
+    background-color: #272727;
+    width: 50%;
+    margin-left: 25%;
+}
+
 .app #result {
     margin: 1%;
     border-color: transparent;
     border-radius: 10px;
     background-color: #272727;
+    overflow: scroll;
 }
