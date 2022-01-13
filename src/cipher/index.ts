@@ -7,9 +7,14 @@ import CryptoJS from 'crypto-js';
  * @returns     The encrypted string
  */
 function encrypt(key: number, input: string): string {
-    const hash: string = CryptoJS.SHA256(key.toString()).toString();
-    const result: string = CryptoJS.AES.encrypt(input, hash).toString();
-    return result;
+    try {
+        const hash: string = CryptoJS.SHA256(key.toString()).toString();
+        const result: string = CryptoJS.AES.encrypt(input, hash).toString();
+        return result;
+    } catch (err) {
+        console.log(err);
+        return "";
+    }
 }
 
 /**
@@ -19,9 +24,14 @@ function encrypt(key: number, input: string): string {
  * @returns     The decrypted string
  */
 function decrypt(key: number, input: string): string {
-    const hash: string = CryptoJS.SHA256(key.toString()).toString();
-    const result: string = CryptoJS.AES.decrypt(input, hash).toString(CryptoJS.enc.Utf8);
-    return result;
+    try {
+        const hash: string = CryptoJS.SHA256(key.toString()).toString();
+        const result: string = CryptoJS.AES.decrypt(input, hash).toString(CryptoJS.enc.Utf8);
+        return result;
+    } catch (err) {
+        console.log(err);
+        return "";
+    }
 }
 
 export {
